@@ -1,13 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Select, selectClasses } from '@mui/base/Select';
 import { Option, optionClasses } from '@mui/base/Option';
 import { Popper } from '@mui/base/Popper';
 import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
+import { useTelegram } from '../hooks/useTelegram';
 
+const {tg, onToggleButton} = useTelegram();
 
 const SuperSelect = () => {
+  
+  useEffect( () => { tg.ready() }, []);
+
   return (
     <CustomSelect>
       <StyledOption value={10}>Хочу обналичить Крипту</StyledOption>
@@ -25,7 +31,7 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
     ...props.slots,
   };
 
-  return <Select {...props} ref={ref} slots={slots} />;
+  return <Select {...props} ref={ref} slots={slots} onChange={onToggleButton} />;
 });
 
 CustomSelect.propTypes = {
