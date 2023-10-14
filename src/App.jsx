@@ -4,7 +4,7 @@ import { useTelegram } from './hooks/useTelegram'
 import SuperSelect from './components/SuperSelect';
 
 function App(props) {
-  const {tg, onToggleButton} = useTelegram()
+  const {tg, onToggleButton} = useTelegram();
 
   useEffect( () => {
     tg.ready()
@@ -24,7 +24,7 @@ function App(props) {
   return (
     <Container maxWidth="xs" sx={boxStyles}>
       <Typography variant="h6" component="h2" gutterBottom>EX beta v.0.1</Typography>
-      <Typography variant='h5' sx={{ marginTop: "5px", marginBottom: "20px", fontWeight: "bold"}}>welcome, {tg.user?.username} </Typography>
+      <Typography variant='h5' sx={{ marginTop: "5px", marginBottom: "20px"}}>welcome, {tg.user?.username} </Typography>
       <SuperSelect />
       <Button sx={{ marginTop: "30px"}} onClick={onToggleButton}>ПОЕХАЛИ!</Button>
     </Container>
