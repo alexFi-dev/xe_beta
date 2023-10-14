@@ -25,7 +25,7 @@ function App() {
   return (
     <Container maxWidth="xs" sx={boxStyles}>
       <Typography variant="h6" component="h2" gutterBottom>EX beta v.0.1</Typography>
-      <SuperSelect onClick={onToggleButton} />
+      <SuperSelect onChange={onToggleButton} />
     </Container>
   )
 }
