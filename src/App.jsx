@@ -3,7 +3,7 @@ import { Container, Typography, Button } from '@mui/material'
 import { useTelegram } from './hooks/useTelegram'
 import SuperSelect from './components/SuperSelect';
 
-function App() {
+function App(props) {
   const {tg, onToggleButton} = useTelegram()
 
   useEffect( () => {
@@ -22,8 +22,8 @@ function App() {
   }
 
   return (
-    <Container maxWidth="sm" sx={boxStyles}>
-      <Typography variant="h1" component="h1" gutterBottom>EX beta v.0.1</Typography>
+    <Container maxWidth="xs" sx={boxStyles}>
+      <Typography variant="h6" component="h2" gutterBottom>EX beta v.0.1</Typography>
       <Typography variant='h5' sx={{ marginTop: "5px", marginBottom: "20px", fontWeight: "bold"}}>welcome, {tg.user?.username} </Typography>
       <SuperSelect />
       <Button sx={{ marginTop: "30px"}} onClick={onToggleButton}>ПОЕХАЛИ!</Button>
