@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import { Select, selectClasses } from '@mui/base/Select';
 import { Option, optionClasses } from '@mui/base/Option';
@@ -11,23 +11,37 @@ import { useTelegram } from '../hooks/useTelegram';
 const {tg, onToggleButton} = useTelegram();
 
 const SuperSelect = () => {
-  
+
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = event => {
+    setIsShown(current => !current);
+  };
+
   useEffect( () => { 
     tg.ready();
     tg.MainButton.onClick(() => {
       tg.sendData("Привет бэкенд!"); 
       //при клике на основную кнопку отправляем данные в строковом виде
-      tg.MainButton.setParams({"color": "#E0FFFF"});
+      tg.MainButton.setText("Готово! :) ");
       tg.MainButton.disable();
     });
   }, []);
   
   return (
-    <CustomSelect>
-      <StyledOption value={10}>Хочу обналичить Крипту</StyledOption>
-      <StyledOption value={20}>Хочу купить Валюту</StyledOption>
-      <StyledOption value={30}>Хочу поменять USD на THB</StyledOption>
-    </CustomSelect>
+    <>
+      <CustomSelect>
+        <StyledOption value={10}>Хочу обналичить Крипту</StyledOption>
+        <StyledOption value={20}>Хочу купить Валюту</StyledOption>
+        <StyledOption value={30}>Хочу поменять USD на THB</StyledOption>
+      </CustomSelect>
+
+      {isShown && (
+        <div>
+          <h2>Results...</h2>
+        </div>
+      )}
+    </>
   )
 }
 
