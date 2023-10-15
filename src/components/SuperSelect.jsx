@@ -6,6 +6,9 @@ import { Option, optionClasses } from '@mui/base/Option';
 import { Popper } from '@mui/base/Popper';
 import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AndroidIcon from '@mui/icons-material/Android';
 import { useTelegram } from '../hooks/useTelegram';
 import ResultList from './ResultList';
 
@@ -35,9 +38,9 @@ const SuperSelect = () => {
   return (
     <>
       <CustomSelect>
-        <StyledOption value={10}>Хочу обналичить Крипту</StyledOption>
-        <StyledOption value={20}>Хочу купить Валюту</StyledOption>
-        <StyledOption value={30}>Хочу поменять USD на THB</StyledOption>
+        <StyledOption value={10}>Хочу обналичить Крипту <CurrencyBitcoinIcon sx={{ marginBottom: "-7px" }} /><CurrencyBitcoinIcon sx={{ marginBottom: "-7px" }} /><CurrencyBitcoinIcon sx={{ marginBottom: "-7px" }} /></StyledOption>
+        <StyledOption value={20}>Хочу купить Валюту <AttachMoneyIcon sx={{ marginBottom: "-7px" }}  /><AttachMoneyIcon sx={{ marginBottom: "-7px" }} /><AttachMoneyIcon sx={{ marginBottom: "-7px" }} /></StyledOption>
+        <StyledOption value={30}>Хочу поменять USD на THB <AndroidIcon sx={{ fontSize: 40, marginBottom: "-11px", marginLeft: "10px" }} /></StyledOption>
       </CustomSelect>
       
       {isShown && <ResultList />}
