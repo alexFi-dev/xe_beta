@@ -7,6 +7,7 @@ import { Popper } from '@mui/base/Popper';
 import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
 import { useTelegram } from '../hooks/useTelegram';
+import ResultList from './ResultList';
 
 const {tg, onToggleButton} = useTelegram();
 
@@ -23,7 +24,9 @@ const SuperSelect = () => {
     tg.MainButton.onClick(() => {
       tg.sendData("Привет бэкенд!"); 
       //при клике на основную кнопку отправляем данные в строковом виде
-      tg.MainButton.setText("Готово! :) ");
+      tg.MainButton.setText("Привет бэкенд!");
+      tg.MainButton.color = "#FDFDFD";
+      tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
       handleClick();
     });
@@ -36,12 +39,8 @@ const SuperSelect = () => {
         <StyledOption value={20}>Хочу купить Валюту</StyledOption>
         <StyledOption value={30}>Хочу поменять USD на THB</StyledOption>
       </CustomSelect>
-
-      {isShown && (
-        <div>
-          <h2>Results...</h2>
-        </div>
-      )}
+      
+      {isShown && <ResultList />}
     </>
   )
 }

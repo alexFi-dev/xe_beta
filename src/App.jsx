@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Container, Typography, Button } from '@mui/material'
+import { useEffect } from 'react'
+import { Container, Typography } from '@mui/material'
 import { useTelegram } from './hooks/useTelegram'
 import SuperSelect from './components/SuperSelect'
 
 function App() {
   
-  const {tg, onToggleButton} = useTelegram()
+  const {tg} = useTelegram()
 
   useEffect( () => {
     tg.ready()
