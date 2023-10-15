@@ -25,6 +25,7 @@ const SuperSelect = () => {
       //при клике на основную кнопку отправляем данные в строковом виде
       tg.MainButton.setText("Готово! :) ");
       tg.MainButton.disable();
+      handleClick();
     });
   }, []);
   
