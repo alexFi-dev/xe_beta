@@ -1,3 +1,6 @@
+
+import { useEffect } from 'react'
+
 const tg = window.Telegram.WebApp
 
 export function useTelegram() {
@@ -7,6 +10,8 @@ export function useTelegram() {
     }
 
     const onToggleButton = () => {
+        tg.MainButton.text = "Давай сделаем это!";
+
         if(tg.MainButton.isVisible) {
             tg.MainButton.hide()
         } else {

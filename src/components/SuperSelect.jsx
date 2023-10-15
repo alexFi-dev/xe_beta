@@ -12,8 +12,16 @@ const {tg, onToggleButton} = useTelegram();
 
 const SuperSelect = () => {
   
-  useEffect( () => { tg.ready() }, []);
-
+  useEffect( () => { 
+    tg.ready();
+    tg.MainButton.onClick(() => {
+      tg.sendData("Привет бэкенд!"); 
+      //при клике на основную кнопку отправляем данные в строковом виде
+      tg.MainButton.setParams({"color": "#E0FFFF"});
+      tg.MainButton.disable();
+    });
+  }, []);
+  
   return (
     <CustomSelect>
       <StyledOption value={10}>Хочу обналичить Крипту</StyledOption>
